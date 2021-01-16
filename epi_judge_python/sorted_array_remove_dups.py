@@ -10,20 +10,12 @@ def delete_duplicates(A: List[int]) -> int:
     if not A:
         return 0
 
-    jump, i = 0, 0
-    cur = A[0] - 1
-
-    while i < len(A):
-        while i < len(A) and A[i] == cur:
-            jump += 1
-            i += 1
-        if i < len(A):
-            cur = A[i]
-            A[i - jump] = A[i]
-            i += 1
-
-    return len(A) - jump
-
+    write = 1
+    for i in range(1, len(A)):
+        if A[write - 1] != A[i]:
+            A[write] = A[i]
+            write += 1
+    return write
 
 
 @enable_executor_hook
