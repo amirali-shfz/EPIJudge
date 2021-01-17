@@ -1,15 +1,48 @@
 from test_framework import generic_test
 from test_framework.test_failure import TestFailure
+import functools
+import string
 
 
 def int_to_string(x: int) -> str:
-    # TODO - you fill in here.
-    return '0'
+    neg = (x < 0)
+    x = abs(x)
+    mapping = {
+        0: '0',
+        1: '1',
+        2: '2',
+        3: '3',
+        4: '4',
+        5: '5',
+        6: '6',
+        7: '7',
+        8: '8',
+        9: '9'
+    }
+    s = ''
+    while True:
+        s += mapping[x % 10]
+        if x == 0:
+            break
+        x //= 10
+
+    if neg:
+        s += '-'
+    s = s[::-1]
+    return s
 
 
 def string_to_int(s: str) -> int:
-    # TODO - you fill in here.
-    return 0
+    sign = -1 if s[0] == '-' else 1
+    s = s.strip('-+')
+    x = 0
+    for index, i in enumerate(s):
+        num = ord(i) - ord('0')
+        x += (num * (10 ** (len(s) - index - 1)))
+
+    return x * sign
+
+    # x += [((ord(i) - ord('0'))*(10**(len(s)-index-1))) for index, i in enumerate(s)]
 
 
 def wrapper(x, s):
