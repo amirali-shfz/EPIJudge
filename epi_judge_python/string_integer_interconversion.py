@@ -38,7 +38,8 @@ def string_to_int(s: str) -> int:
     x = 0
     for index, i in enumerate(s):
         num = ord(i) - ord('0')
-        x += (num * (10 ** (len(s) - index - 1)))
+        x *= 10
+        x += num
 
     return x * sign
 
