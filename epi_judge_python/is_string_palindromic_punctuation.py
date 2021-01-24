@@ -4,13 +4,10 @@ from test_framework import generic_test
 def is_palindrome(s: str) -> bool:
     l, r = 0, len(s) - 1
 
-    def isalpha(c):
-        return (ord('a') <= ord(c.lower()) <= ord('z')) or (ord('0') <= ord(c) <= ord('9'))
-
     while l < r:
-        if not isalpha(s[l]):
+        if not s[l].isalnum():
             l += 1
-        elif not isalpha(s[r]):
+        elif not s[r].isalnum():
             r -= 1
         elif s[l].lower() != s[r].lower():
             return False
