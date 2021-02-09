@@ -8,7 +8,27 @@ from test_framework.test_utils import enable_executor_hook
 
 
 def overlapping_lists(l0: ListNode, l1: ListNode) -> Optional[ListNode]:
-    # TODO - you fill in here.
+    def length(l: ListNode):
+        count = 0
+        while l:
+            count += 1
+            l = l.next
+        return count
+
+    s0, s1 = length(l0), length(l1)
+
+    if s0 > s1:
+        l0, l1 = l1, l0
+        s0, s1 = s1, s0
+
+    for _ in range(s1 - s0):
+        l1 = l1.next
+        
+    while l1:
+        if l1 is l0:
+            return l1
+        l0, l1 = l0.next, l1.next
+
     return None
 
 
