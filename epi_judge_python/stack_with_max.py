@@ -1,24 +1,24 @@
 from test_framework import generic_test
 from test_framework.test_failure import TestFailure
-
+from collections import namedtuple
+from typing import List
 
 class Stack:
+    Elements = namedtuple('Elements', ('value', 'max'))
+    def __init__(self):
+        self._elements: List[Stack.Elements] = []
+
     def empty(self) -> bool:
-        # TODO - you fill in here.
-        return True
+        return len(self._elements) == 0
 
     def max(self) -> int:
-        # TODO - you fill in here.
-        return 0
+        return self._elements[-1].max
 
     def pop(self) -> int:
-        # TODO - you fill in here.
-        return 0
+        return self._elements.pop().value
 
     def push(self, x: int) -> None:
-        # TODO - you fill in here.
-        return
-
+        self._elements.append(self.Elements(x, x if self.empty() else max(self.max(), x)))
 
 def stack_tester(ops):
     try:
