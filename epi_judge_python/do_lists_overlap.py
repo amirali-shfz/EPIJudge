@@ -23,7 +23,7 @@ def overlapping_lists(l0: ListNode, l1: ListNode) -> Optional[ListNode]:
 
     for _ in range(s1 - s0):
         l1 = l1.next
-        
+
     while l1:
         if l1 is l0:
             return l1
