@@ -5,6 +5,7 @@ from typing import List
 
 class Stack:
     Elements = namedtuple('Elements', ('value', 'max'))
+
     def __init__(self):
         self._elements: List[Stack.Elements] = []
 

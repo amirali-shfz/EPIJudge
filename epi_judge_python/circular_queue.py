@@ -3,9 +3,17 @@ from test_framework.test_failure import TestFailure
 
 
 class Queue:
-    def __init__(self, capacity: int) -> None:
-        # TODO - you fill in here.
-        return
+
+    def getNext(self, cur):
+        return 0 if cur == self.capacity - 1 else cur + 1
+
+    def getPrevious(self, cur):
+        return self.capacity - 1 if cur == 0 else cur - 1
+
+    def __init__(self, capacity: int):
+        self.capacity = capacity
+        self.start = 0
+        self.end = 0
 
     def enqueue(self, x: int) -> None:
         # TODO - you fill in here.
