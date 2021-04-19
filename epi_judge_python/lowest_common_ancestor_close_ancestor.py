@@ -8,10 +8,27 @@ from test_framework.test_failure import TestFailure
 from test_framework.test_utils import enable_executor_hook
 
 
-def lca(node0: BinaryTreeNode,
-        node1: BinaryTreeNode) -> Optional[BinaryTreeNode]:
-    # TODO - you fill in here.
-    return None
+def lca(left: BinaryTreeNode,
+        right: BinaryTreeNode) -> Optional[BinaryTreeNode]:
+    left_parents = set()
+    right_parents = set()
+
+    while left or right:
+        if left == right:
+            return left
+
+        if left:
+            left_parents.add(left)
+            left = left.parent
+        if right:
+            right_parents.add(right)
+            right = right.parent
+
+        if left in right_parents:
+            return left
+        if right in left_parents:
+            return right
+
 
 
 @enable_executor_hook
