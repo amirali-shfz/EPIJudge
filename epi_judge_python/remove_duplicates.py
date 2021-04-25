@@ -16,8 +16,8 @@ class Name:
 
 
 def eliminate_duplicate(A: List[Name]) -> None:
-    A.sort()
     write_index = 0
+    A.sort()
 
     for a in A[1:]:
         if a.first_name == A[write_index]:
