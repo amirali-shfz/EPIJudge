@@ -15,6 +15,7 @@ def merge_two_sorted_arrays(A: List[int], m: int, B: List[int],
             A[write_idx] = B[b]
             b -= 1
         write_idx -= 1
+
     while b >= 0:
         A[write_idx] = B[b]
         write_idx, b = write_idx - 1, b - 1
