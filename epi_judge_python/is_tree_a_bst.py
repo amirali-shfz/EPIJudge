@@ -15,17 +15,20 @@ def is_binary_tree_bst(tree: BinaryTreeNode) -> bool:
     return matches_constraints(tree)
 
 
+Bounds = collections.namedtuple('Bounds', ('lower', 'higher'))
+
+
 def is_binary_tree_bst_bfs(tree: BinaryTreeNode) -> bool:
-    Bounds = collections.namedtuple('Bounds', ('lower', 'higher'))
-    queue = [(tree, Bounds(float('-inf'), float('inf')))]
+    queue = collections.deque([(tree, Bounds(float('-inf'), float('inf')))])
     while queue:
-        node, bounds = queue.pop()
-        if not bounds.lower <= node.data <= bounds.higher:
-            return False
-        if node.left:
-            queue.append((node.left, Bounds(bounds.lower, node.data)))
-        if node.right:
-            queue.append((node.right, Bounds(node.data, bounds.higher)))
+        node, bounds = queue.popleft()
+        if node:
+            if not bounds.lower <= node.data <= bounds.higher:
+                return False
+            queue += [
+                (node.left, Bounds(bounds.lower, node.data)),
+                (node.right, Bounds(node.data, bounds.higher))
+            ]
 
     return True
 
