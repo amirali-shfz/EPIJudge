@@ -149,7 +149,7 @@ def assert_equal_binary_trees(expected, result):
             s.append((expected.right, result.right, path.with_right()))
 
 
-def binary_tree_to_string_pretty(root, val="data", left="left", right="right"):
+def bst_print(root, val="data", left="left", right="right"):
     def display(root, val=val, left=left, right=right):
         """Returns list of strings, width, height, and horizontal coordinate of the root."""
         # No child.
