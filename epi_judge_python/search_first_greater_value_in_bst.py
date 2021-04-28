@@ -9,8 +9,7 @@ def find_first_greater_than_k(tree: BstNode, k: int) -> Optional[BstNode]:
 
     while node:
         if node.data > k:
-            cur = node if not cur or node.data < cur.data else cur
-            node = node.left
+            cur, node = node, node.left
         else:
             node = node.right
 
