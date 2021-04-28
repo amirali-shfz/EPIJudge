@@ -1,4 +1,4 @@
-from test_framework.binary_tree_utils import (equal_binary_trees, binary_tree_to_string_pretty)
+from test_framework.binary_tree_utils import (equal_binary_trees, bst_print)
 
 
 class BinaryTreeNode:
@@ -11,7 +11,7 @@ class BinaryTreeNode:
         return equal_binary_trees(self, other)
 
     def __repr__(self):
-        return str(binary_tree_to_string_pretty(self))
+        return str(bst_print(self))
 
     def __str__(self):
         return self.__repr__()
