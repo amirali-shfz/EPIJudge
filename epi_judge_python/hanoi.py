@@ -9,8 +9,16 @@ NUM_PEGS = 3
 
 
 def compute_tower_hanoi(num_rings: int) -> List[List[int]]:
-    # TODO - you fill in here.
-    return []
+
+    def move_disks(n, source, target, extra):
+        if n == 1:
+            return [[source, target]]
+        else:
+            return move_disks(n - 1, source=source, target=extra, extra=target) \
+                   + [[source, target]] \
+                   + move_disks(n - 1, source=extra, target=target, extra=source)
+
+    return move_disks(num_rings, 0, 1, 2)
 
 
 @enable_executor_hook

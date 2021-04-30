@@ -4,8 +4,20 @@ from test_framework import generic_test
 
 
 def n_queens(n: int) -> List[List[int]]:
-    # TODO - you fill in here.
-    return []
+
+    def place_queen(row):
+        if row == n:
+            result.append(list(board))
+            return
+        for column in range(n):
+            if all(abs(column - c) not in (0, row - r) for r, c in enumerate(board[:row])):
+                board[row] = column
+                place_queen(row + 1)
+
+    result = []
+    board = [0] * n
+    place_queen(0)
+    return result
 
 
 def comp(a, b):

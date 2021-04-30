@@ -18,7 +18,7 @@ def find_lca(tree: BstNode, s: BstNode, b: BstNode) -> Optional[BstNode]:
             tree = tree.left
         else:
             tree = tree.right
-    
+
     return None
 
 
