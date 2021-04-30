@@ -1,5 +1,5 @@
 from test_framework.binary_tree_utils import (binary_tree_to_string,
-                                              equal_binary_trees)
+                                              equal_binary_trees, bst_print)
 
 
 class BstNode:
@@ -10,7 +10,7 @@ class BstNode:
         return equal_binary_trees(self, other)
 
     def __repr__(self):
-        return str(binary_tree_to_string(self))
+        return str(bst_print(self))
 
     def __str__(self):
         return self.__repr__()
