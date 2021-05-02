@@ -19,7 +19,6 @@ def num_combinations_for_final_score(final_score: int,
     return num_combs[-1][-1]
 
 
-
 if __name__ == '__main__':
     exit(
         generic_test.generic_test_main('number_of_score_combinations.py',
