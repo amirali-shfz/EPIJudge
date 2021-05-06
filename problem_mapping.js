@@ -2226,7 +2226,7 @@ problem_mapping = {
                 "total": 100
             },
             "Python: knapsack.py": {
-                "passed": 0,
+                "passed": 100,
                 "total": 100
             }
         },
@@ -2762,7 +2762,7 @@ problem_mapping = {
                 "total": 206
             },
             "Python: search_unknown_length_array.py": {
-                "passed": 0,
+                "passed": 1,
                 "total": 206
             }
         },
