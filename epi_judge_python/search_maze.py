@@ -33,7 +33,6 @@ def search_maze(maze: List[List[int]], s: Coordinate,
     if not dfs(s):
         return []
     return path
-    # return path if dfs(s) else []
 
 
 def path_element_is_feasible(maze, prev, cur):
